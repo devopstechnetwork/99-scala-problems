@@ -199,9 +199,17 @@ object P13 {
 P13.encodeDirect(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
 
 
-
-object P14{
-  def duplicate[T](list:List[T]) : List[T] =
+object P14 {
+  def duplicate[T](list: List[T]): List[T] =
     list flatMap { elem => List(elem, elem) }
 }
+
 P14.duplicate(List('a, 'b, 'c, 'c, 'd))
+
+
+object P15 {
+  def duplicateN[T](n: Int, list: List[T]): List[T] =
+    list flatMap { List.fill(n)(_) }
+}
+
+P15.duplicateN(3, List('a, 'b, 'c, 'c, 'd))
