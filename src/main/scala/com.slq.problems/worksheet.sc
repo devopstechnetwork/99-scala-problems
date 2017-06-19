@@ -209,7 +209,19 @@ P14.duplicate(List('a, 'b, 'c, 'c, 'd))
 
 object P15 {
   def duplicateN[T](n: Int, list: List[T]): List[T] =
-    list flatMap { List.fill(n)(_) }
+    list flatMap {
+      List.fill(n)(_)
+    }
 }
 
 P15.duplicateN(3, List('a, 'b, 'c, 'c, 'd))
+
+
+object P16 {
+  def drop[T](n: Int, list: List[T]): List[T] =
+    (1 to list.length).zip(list).foldRight(List[T]()) {
+      case ((idx, elem), acc) => if (idx % n == 0) acc else elem :: acc
+    }
+}
+
+P16.drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
