@@ -2,6 +2,8 @@
 
 some text
 
+second text
+
 ### Links
 Superb source of inspiration for Scala problems: http://aperiodic.net/phil/scala/s-99/
 
